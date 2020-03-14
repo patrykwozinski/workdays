@@ -27,6 +27,6 @@ defmodule Calendar do
   end
 
   defp moving_holidays?(date) do
-    MovingHolidays.easter?(date) or MovingHolidays.ramadan?(date)
+    MovingHolidays.easter?(date)
   end
 end

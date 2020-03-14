@@ -25,9 +25,4 @@ defmodule Calendar.Holidays.Moving do
 
     :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
   end
-
-  @doc false
-  def ramadan?(_date) do
-    false
-  end
 end
