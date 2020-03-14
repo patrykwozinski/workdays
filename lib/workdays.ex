@@ -10,13 +10,11 @@ defmodule Workdays do
 
   ## Examples
 
-      iex> Workdays.workday?("2020-03-09")
+      iex> Workdays.workday?(~D[2020-03-09])
       true
 
   """
   def workday?(date) do
-    date = Date.from_iso8601!(date)
-
     !weekend?(date) and !Holidays.christmas?(date) and !moving_holidays?(date)
   end
 
