@@ -17,7 +17,7 @@ defmodule Workdays do
   def workday?(date) do
     date = Date.from_iso8601!(date)
 
-    !weekend?(date) and !moving_holidays?(date)
+    !weekend?(date) and !Holidays.christmas?(date) and !moving_holidays?(date)
   end
 
   defp weekend?(date) do
@@ -25,6 +25,6 @@ defmodule Workdays do
   end
 
   defp moving_holidays?(date) do
-    Holidays.easter?(date) or Holidays.christmas?(date)
+    Holidays.easter?(date)
   end
 end
