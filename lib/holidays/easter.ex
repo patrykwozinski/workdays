@@ -18,6 +18,9 @@ defmodule Workdays.Easter do
     month = (h + l - 7 * m + 114) |> div(31)
     day = ((h + l - 7 * m + 114) |> rem(31)) + 1
 
-    date.month == month and date.day == day
+    {_, sunday} = Date.new(y, month, day)
+    monday = Date.add(sunday, 1)
+
+    :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
   end
 end
