@@ -1,4 +1,6 @@
 defmodule Workdays do
+  alias Workdays.Holidays
+
   @moduledoc """
   Work days calculator and checker
   """
@@ -23,6 +25,6 @@ defmodule Workdays do
   end
 
   defp moving_holidays?(date) do
-    Workdays.Easter.gregorian?(date)
+    Holidays.easter?(date) or Holidays.christmas?(date)
   end
 end

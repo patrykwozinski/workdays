@@ -10,11 +10,14 @@ defmodule WorkdaysTest do
     assert Workdays.workday?("2020-03-14") == false
   end
 
-  test "Easter Sunday is not a work day" do
+  test "Easter Sunday and Monday are not a work days" do
     assert Workdays.workday?("2020-04-12") == false
+    assert Workdays.workday?("2020-04-13") == false
   end
 
-  test "Easter Monday is not a work day" do
-    assert Workdays.workday?("2020-04-13") == false
+  test "Christmas Days are not work days" do
+    assert Workdays.workday?("2020-12-24") == false
+    assert Workdays.workday?("2020-12-25") == false
+    assert Workdays.workday?("2020-12-26") == false
   end
 end

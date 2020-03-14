@@ -1,6 +1,6 @@
-defmodule Workdays.Easter do
+defmodule Workdays.Holidays do
   @doc false
-  def gregorian?(date) do
+  def easter?(date) do
     y = date.year
     a = rem(y, 19)
     b = div(y, 100)
@@ -22,5 +22,14 @@ defmodule Workdays.Easter do
     monday = Date.add(sunday, 1)
 
     :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
+  end
+
+  @doc false
+  def christmas?(date) do
+    cond do
+      date.month != 12 -> false
+      date.day > 23 and date.day < 27 -> true
+      true -> false
+    end
   end
 end
