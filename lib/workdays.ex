@@ -12,7 +12,17 @@ defmodule Workdays do
       true
 
   """
-  def workday?(_day) do
-    true
+  def workday?(day) do
+    day = Date.from_iso8601!(day)
+
+    !weekend?(day)
+  end
+
+  defp weekend?(date) do
+    weekday = date
+    |> Date.to_erl
+    |> :calendar.day_of_the_week
+
+    weekday > 5
   end
 end
