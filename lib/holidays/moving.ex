@@ -1,7 +1,5 @@
-defmodule Calendar.Holidays do
-  @moduledoc """
-  Checks if given date is a holiday
-  """
+defmodule Calendar.Holidays.Moving do
+  @moduledoc false
 
   @doc false
   def easter?(date) do
@@ -26,15 +24,6 @@ defmodule Calendar.Holidays do
     monday = Date.add(sunday, 1)
 
     :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
-  end
-
-  @doc false
-  def christmas?(date) do
-    cond do
-      date.month != 12 -> false
-      date.day > 23 and date.day < 27 -> true
-      true -> false
-    end
   end
 
   @doc false
