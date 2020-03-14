@@ -4,7 +4,7 @@ defmodule Workdays do
   """
 
   @doc """
-  Is the day workday?
+  Is the day a workday?
 
   ## Examples
 
