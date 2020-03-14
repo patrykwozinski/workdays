@@ -25,6 +25,6 @@ defmodule Workdays do
   end
 
   defp moving_holidays?(date) do
-    Holidays.easter?(date)
+    Holidays.easter?(date) or Holidays.ramadan?(date)
   end
 end

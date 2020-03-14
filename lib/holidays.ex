@@ -32,4 +32,9 @@ defmodule Workdays.Holidays do
       true -> false
     end
   end
+
+  @doc false
+  def ramadan?(_date) do
+    false
+  end
 end
