@@ -3,7 +3,14 @@ defmodule Calendar.Holidays.Moving do
 
   @doc false
   def easter?(date) do
-    y = date.year
+    {_, sunday} = get_easter(date.year)
+    monday = Date.add(sunday, 1)
+
+    :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
+  end
+
+  @doc false
+  def get_easter(y) do
     a = rem(y, 19)
     b = div(y, 100)
     c = rem(y, 100)
@@ -20,9 +27,6 @@ defmodule Calendar.Holidays.Moving do
     month = (h + l - 7 * m + 114) |> div(31)
     day = ((h + l - 7 * m + 114) |> rem(31)) + 1
 
-    {_, sunday} = Date.new(y, month, day)
-    monday = Date.add(sunday, 1)
-
-    :eq == Date.compare(date, sunday) or :eq == Date.compare(date, monday)
+    Date.new(y, month, day)
   end
 end

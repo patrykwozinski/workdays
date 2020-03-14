@@ -1,6 +1,7 @@
 defmodule Calendar do
   alias Calendar.Holidays.Fixed, as: FixedHolidays
   alias Calendar.Holidays.Moving, as: MovingHolidays
+  alias Calendar.Holidays.Polish, as: PolishHolidays
 
   @moduledoc """
   Work days calculator and checker
@@ -19,11 +20,15 @@ defmodule Calendar do
 
   """
   def workday?(date) do
-    !weekend?(date) and !FixedHolidays.christmas?(date) and !moving_holidays?(date)
+    !weekend?(date) and !FixedHolidays.christmas?(date) and !polish?(date) and !moving_holidays?(date)
   end
 
   defp weekend?(date) do
     Date.day_of_week(date) > 5
+  end
+
+  defp polish?(date) do
+    PolishHolidays.bank_holiday?(date) or PolishHolidays.corpus_christi?(date)
   end
 
   defp moving_holidays?(date) do
