@@ -1,18 +1,18 @@
 defmodule Workdays do
   @moduledoc """
-  Documentation for Workdays.
+  Work days calculator and checker
   """
 
   @doc """
-  Hello world.
+  Is the day workday?
 
   ## Examples
 
-      iex> Workdays.hello()
-      :world
+      iex> Workdays.workday?("2020-03-09")
+      true
 
   """
-  def hello do
-    :world
+  def workday?(_day) do
+    true
   end
 end
