@@ -1,5 +1,5 @@
-defmodule Workdays do
-  alias Workdays.Holidays
+defmodule Calendar do
+  alias Calendar.Holidays
 
   @moduledoc """
   Work days calculator and checker
@@ -10,7 +10,7 @@ defmodule Workdays do
 
   ## Examples
 
-      iex> Workdays.workday?(~D[2020-03-09])
+      iex> Calendar.workday?(~D[2020-03-09])
       true
 
   """

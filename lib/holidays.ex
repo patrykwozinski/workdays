@@ -1,4 +1,4 @@
-defmodule Workdays.Holidays do
+defmodule Calendar.Holidays do
   @doc false
   def easter?(date) do
     y = date.year
