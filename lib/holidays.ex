@@ -1,4 +1,8 @@
 defmodule Calendar.Holidays do
+  @moduledoc """
+  Checks if given date is a holiday
+  """
+
   @doc false
   def easter?(date) do
     y = date.year
