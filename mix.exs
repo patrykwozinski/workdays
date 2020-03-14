@@ -8,6 +8,7 @@ defmodule Workdays.MixProject do
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       package: package(),
+      description: description(),
       deps: deps()
     ]
   end
@@ -28,11 +29,14 @@ defmodule Workdays.MixProject do
     ]
   end
 
+  defp description() do
+    "Provides information about working days"
+  end
+
   defp package() do
     [
       name: "calendar-workdays",
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog* src),
+      files: ~w(lib .formatter.exs mix.exs README* LICENSE*),
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/patrykwozinski/workdays"}
     ]
