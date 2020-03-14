@@ -22,7 +22,7 @@ defmodule Workdays do
     Date.day_of_week(date) > 5
   end
 
-  defp moving_holidays?(_date) do
-    false
+  defp moving_holidays?(date) do
+    Workdays.Easter.is_easter?(date)
   end
 end
