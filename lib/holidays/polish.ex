@@ -13,4 +13,12 @@ defmodule Calendar.Holidays.Polish do
       true -> false
     end
   end
+
+  @doc false
+  def corpus_christi?(date) do
+    {_, easter} = Calendar.Holidays.Moving.get_easter(date.year)
+    corpus_christi = Date.add(easter, 60)
+
+    :eq == Date.compare(date, corpus_christi)
+  end
 end
