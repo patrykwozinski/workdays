@@ -15,10 +15,14 @@ defmodule Workdays do
   def workday?(day) do
     day = Date.from_iso8601!(day)
 
-    !weekend?(day)
+    !weekend?(day) and !moving_holidays?(day)
   end
 
   defp weekend?(date) do
     Date.day_of_week(date) > 5
+  end
+
+  defp moving_holidays?(_day) do
+    false
   end
 end
