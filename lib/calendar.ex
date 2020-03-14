@@ -13,6 +13,9 @@ defmodule Calendar do
       iex> Calendar.workday?(~D[2020-03-09])
       true
 
+      iex> Calendar.workday?(~D[2020-12-24])
+      false
+
   """
   def workday?(date) do
     !weekend?(date) and !Holidays.christmas?(date) and !moving_holidays?(date)
