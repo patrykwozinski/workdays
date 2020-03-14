@@ -23,6 +23,6 @@ defmodule Workdays do
   end
 
   defp moving_holidays?(date) do
-    Workdays.Easter.is_easter?(date)
+    Workdays.Easter.gregorian?(date)
   end
 end

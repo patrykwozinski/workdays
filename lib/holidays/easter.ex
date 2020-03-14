@@ -1,6 +1,6 @@
 defmodule Workdays.Easter do
   @doc false
-  def is_easter?(date) do
+  def gregorian?(date) do
     y = date.year
     a = rem(y, 19)
     b = div(y, 100)
