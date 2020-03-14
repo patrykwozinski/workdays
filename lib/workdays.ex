@@ -19,10 +19,6 @@ defmodule Workdays do
   end
 
   defp weekend?(date) do
-    weekday = date
-    |> Date.to_erl
-    |> :calendar.day_of_the_week
-
-    weekday > 5
+    Date.day_of_week(date) > 5
   end
 end
